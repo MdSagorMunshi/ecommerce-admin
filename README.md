@@ -61,7 +61,7 @@ STRIPE_WEBHOOK_SECRET=<your-stripe-webhook-secret>
 
 # Frontend Store URL
 FRONTEND_STORE_URL=<your-frontend-store-url>
-
+```
 
 ## Contributing
 

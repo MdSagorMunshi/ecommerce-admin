@@ -8,7 +8,7 @@ generator client {
 }
 
 model Store {
-  id              String    @id @default(uuid())
+  id       String    @id @default(auto()) @map("_id") @db.ObjectId
   name            String
   userId          String
   billboards      Billboard[] @relation("StoreToBillboard")
@@ -22,7 +22,7 @@ model Store {
 }
 
 model Billboard {
-  id          String @id @default(uuid())
+  id       String    @id @default(auto()) @map("_id") @db.ObjectId
   storeId     String
   store       Store @relation("StoreToBillboard", fields: [storeId], references: [id])
   label       String
@@ -35,7 +35,7 @@ model Billboard {
 }
 
 model Category {
-  id          String      @id @default(uuid())
+  id       String    @id @default(auto()) @map("_id") @db.ObjectId
   storeId     String      // Foreign Key to Store
   store       Store       @relation("StoreToCategory", fields: [storeId], references: [id])
   billboardId String      // Foreign Key to Billboard
@@ -50,13 +50,13 @@ model Category {
 }
 
 model Product {
-  id          String    @id @default(uuid())
+  id       String    @id @default(auto()) @map("_id") @db.ObjectId
   storeId     String    // Foreign Key to Store
   store       Store     @relation("StoreToProduct", fields: [storeId], references: [id])
   categoryId  String    // Foreign Key to Category
   category    Category  @relation("CategoryToProduct", fields: [categoryId], references: [id])
   name        String
-  price       Decimal
+  price       Float
   isFeatured  Boolean   @default(false)
   isArchived  Boolean   @default(false)
   sizeId      String    // Foreign Key to Size
@@ -75,7 +75,7 @@ model Product {
 }
 
 model Order {
-  id        String    @id @default(uuid())
+  id       String    @id @default(auto()) @map("_id") @db.ObjectId
   storeId     String    // Foreign Key to Store
   store       Store     @relation("StoreToOrder", fields: [storeId], references: [id])
   orderItems OrderItem[] // Relation to OrderItem model
@@ -90,7 +90,7 @@ model Order {
 
 // Intermediary for a many-to-many relationship
 model OrderItem {
-  id        String  @id @default(uuid())
+  id       String    @id @default(auto()) @map("_id") @db.ObjectId
   orderId   String  // Foreign Key to Order
   order     Order   @relation(fields: [orderId], references: [id])
   productId String  // Foreign Key to Product
@@ -101,7 +101,7 @@ model OrderItem {
 }
 
 model Size {
-  id          String    @id @default(uuid())
+  id       String    @id @default(auto()) @map("_id") @db.ObjectId
   storeId     String    // Foreign Key to Store
   store       Store     @relation("StoreToSize", fields: [storeId], references: [id])
   name        String

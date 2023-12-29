@@ -26,30 +26,42 @@ Welcome to the Next.js 13 eCommerce Admin Panel – a feature-rich solution for 
     ```bash 
     cd ecommerce-admin && npm install
     ```
-3. Environment Variables:
-- Create a `.env` file in the root of your project and add the following environment variables:
-```bash
+
+3. Run the Development Server:
+   ```bash 
+   npm run dev
+   ```
+4. Open in Browser
+  - Visit [http://localhost:3000](http://localhost:3000) in your browser.
+
+## Environment Variables
+
+Before running the application, make sure to set up your environment variables. Create a `.env` file in the root of your project and add the following variables:
+
+```env
 # Clerk Authentication Keys
 NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=<your-clerk-publishable-key>
 CLERK_SECRET_KEY=<your-clerk-secret-key>
 
 # Clerk Authentication URLs
-NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in
-NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up
-NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL=/
-NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL=/
+NEXT_PUBLIC_CLERK_SIGN_IN_URL=<your-sign-in-url>
+NEXT_PUBLIC_CLERK_SIGN_UP_URL=<your-sign-up-url>
+NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL=<your-after-sign-in-url>
+NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL=<your-after-sign-up-url>
 
 # MongoDB Database Connection
 DATABASE_URL=<your-mongodb-database-url>
-```
-- Replace `<your-clerk-publishable-key>`, `<your-clerk-secret-key>`, and `<your-mongodb-database-url>` with your actual keys and database URL.
 
-4. Run the Development Server:
-   ```bash 
-   npm run dev
-   ```
-5. Open in Browser
-  - Visit [http://localhost:3000](http://localhost:3000) in your browser.
+# Cloudinary Configuration
+NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME=<your-cloudinary-cloud-name>
+
+# Stripe Integration
+STRIPE_API_KEY=<your-stripe-api-key>
+STRIPE_WEBHOOK_SECRET=<your-stripe-webhook-secret>
+
+# Frontend Store URL
+FRONTEND_STORE_URL=<your-frontend-store-url>
+
 
 ## Contributing
 

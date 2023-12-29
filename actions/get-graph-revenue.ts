@@ -28,7 +28,7 @@ export const getGraphRevenue = async (storeId: string): Promise<GraphData[]> => 
     let revenueForOrder = 0;
 
     for (const item of order.orderItems) {
-      revenueForOrder += +item.product.price; // Convert to number using unary plus operator
+      revenueForOrder += Number(item.product.price); // Explicitly cast to number
     }
 
     // Adding the revenue for this order to the respective month

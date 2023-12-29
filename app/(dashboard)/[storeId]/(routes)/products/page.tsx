@@ -1,5 +1,4 @@
 import { format } from "date-fns";
-
 import prismadb from "@/lib/prismadb";
 import { formatter } from "@/lib/utils";
 
@@ -30,7 +29,7 @@ const ProductsPage = async ({
     name: item.name,
     isFeatured: item.isFeatured,
     isArchived: item.isArchived,
-    price: formatter.format(item.price.toNumber()),
+    price: formatter.format(item.price), // Removed toNumber()
     category: item.category.name,
     size: item.size.name,
     color: item.color.value,
